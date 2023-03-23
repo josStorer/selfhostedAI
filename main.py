@@ -73,7 +73,7 @@ def read_root():
 
 @app.post("/chat/completions")
 async def completions(body: Body, request: Request):
-    if not body.stream or body.model != model_name:
+    if body.model != model_name:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "Not Implemented")
 
     question = body.messages[-1]
@@ -95,8 +95,12 @@ async def completions(body: Body, request: Request):
         for response in model.stream_chat(tokenizer, question, history, max_length=max(2048, body.max_tokens)):
             if await request.is_disconnected():
                 return
+            if body.stream:
+                yield json.dumps({"response": response[0]})
+        if body.stream:
+            yield "[DONE]"
+        else:
             yield json.dumps({"response": response[0]})
-        yield "[DONE]"
 
     return EventSourceResponse(event_generator())
 
