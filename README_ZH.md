@@ -1,4 +1,4 @@
-# **[简体中文](./README_ZH.md) | English**
+# **简体中文 | [English](./README.md)**
 
 # 自托管AI
 
@@ -19,4 +19,4 @@
     - [自托管](https://huggingface.co/spaces/josStorer/ChatGLM-6B-Int4-API-OpenAI-Compatible)
 
    该包基于ChatGLM, 遵循Apache-2.0协议开源, 内置模型为 https://huggingface.co/silver/chatglm-6b-int4-slim 的裁切版,
-   解压后直接双击run.bat启动,
+   解压后直接双击run.bat启动
