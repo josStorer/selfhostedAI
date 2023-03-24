@@ -9,7 +9,6 @@ from transformers import AutoModel, AutoTokenizer
 from sse_starlette.sse import EventSourceResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from pyngrok import ngrok, conf
 
 import os
 
@@ -52,6 +51,8 @@ def init():
             print("No GPU available")
         print("Using CPU")
     model = model.eval()
+    if os.environ.get("ngrok_token") is not None:
+        ngrok_connect()
 
 
 class Message(BaseModel):
@@ -102,6 +103,7 @@ async def completions(body: Body, request: Request):
 
 
 def ngrok_connect():
+    from pyngrok import ngrok, conf
     conf.set_default(conf.PyngrokConfig(ngrok_path="./ngrok"))
     ngrok.set_auth_token(os.environ["ngrok_token"])
     http_tunnel = ngrok.connect(8000)
@@ -109,5 +111,4 @@ def ngrok_connect():
 
 
 if __name__ == "__main__":
-    # ngrok_connect()
     uvicorn.run("main:app", reload=True, app_dir=".")
