@@ -92,15 +92,15 @@ async def completions(body: Body, request: Request):
             history.append((user_question, assistant_answer))
 
     async def event_generator():
-        for response in model.stream_chat(tokenizer, question, history, max_length=max(2048, body.max_tokens)):
-            if await request.is_disconnected():
-                return
-            if body.stream:
-                yield json.dumps({"response": response[0]})
         if body.stream:
+            for response in model.stream_chat(tokenizer, question, history, max_length=max(2048, body.max_tokens)):
+                if await request.is_disconnected():
+                    return
+                yield json.dumps({"response": response[0]})
             yield "[DONE]"
         else:
-            yield json.dumps({"response": response[0]})
+            response, _ = model.chat(tokenizer, question, history, max_length=max(2048, body.max_tokens))
+            yield response
 
     return EventSourceResponse(event_generator())
 
