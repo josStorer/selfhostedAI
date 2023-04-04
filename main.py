@@ -23,6 +23,14 @@ min_memory = 5.5
 tokenizer = None
 model = None
 
+
+def torch_gc():
+    if torch.cuda.is_available():
+        with torch.cuda.device(0):
+            torch.cuda.empty_cache()
+            torch.cuda.ipc_collect()
+
+
 app = FastAPI()
 
 app.add_middleware(
@@ -102,6 +110,7 @@ async def completions(body: Body, request: Request):
         else:
             response, _ = model.chat(tokenizer, question, history, max_length=max(2048, body.max_tokens))
             yield response
+        torch_gc()
 
     return EventSourceResponse(event_generator())
 
