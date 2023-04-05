@@ -48,7 +48,7 @@ def init_chatglm(chatglm):
 
 def init_llama(llama):
     llama["model"] = subprocess.Popen([os.path.abspath("./models/llama.cpp/main"),
-                                       "-m", llama["model_path"]], stdin=subprocess.PIPE,
+                                       "-m", llama["model_path"], "-t", str(llama["thread"])], stdin=subprocess.PIPE,
                                       stdout=subprocess.PIPE)
     while True:
         text = llama["model"].stdout.readline().decode(errors='ignore')
