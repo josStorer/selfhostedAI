@@ -3,7 +3,6 @@ transformers==4.26.1
 icetk
 cpm_kernels
 torch
-gradio
 fastapi
 pydantic
 uvicorn
