@@ -1,0 +1,1 @@
+"python3.10.10/python.exe" main.py chatglm-6b-int4

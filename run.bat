@@ -1,1 +1,0 @@
-"python3.10.10/python.exe" main.py

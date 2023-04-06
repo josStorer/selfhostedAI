@@ -1,10 +1,12 @@
 import asyncio
 import json
 import re
+import sys
 from typing import List
 import os
 import time
 import subprocess
+import set_torch
 
 from fastapi import FastAPI, Request, status, HTTPException
 from pydantic import BaseModel
@@ -48,7 +50,8 @@ def init_chatglm(chatglm):
 
 def init_llama(llama):
     llama["model"] = subprocess.Popen([os.path.abspath("./models/llama.cpp/main"),
-                                       "-m", llama["model_path"], "-t", str(llama["thread"])], stdin=subprocess.PIPE,
+                                       "-m", llama["model_path"], "-t", str(llama["thread"]),
+                                       "--color", "-ins"], stdin=subprocess.PIPE,
                                       stdout=subprocess.PIPE)
     while True:
         text = llama["model"].stdout.readline().decode(errors='ignore')
@@ -60,7 +63,7 @@ def init_llama(llama):
 
 
 chatglm_6b_int4 = {
-    "enable": False,
+    "enable": "chatglm-6b-int4" in sys.argv[1:],
     "model_name": 'chatglm-6b-int4',
     "type": 'chatglm',
     "bits": 4,
@@ -74,7 +77,7 @@ chatglm_6b_int4 = {
 }
 
 llama_7b_int4 = {
-    "enable": True,
+    "enable": "llama-7b-int4" in sys.argv[1:],
     "model_name": 'llama-7b-int4',
     "type": 'llama_instruct',
     "model_path": "./models/llama.cpp/ggml-model-q4_0.bin",
