@@ -13,7 +13,8 @@ python3 ./repos/Chinese-LLaMA-Alpaca/scripts/merge_llama_with_chinese_lora.py \
 
 cd repos/llama.cpp
 make
-python3 convert-pth-to-ggml.py repos/7B-combined 1
 
 cd ../..
+python3 repos/llama.cpp/convert-pth-to-ggml.py repos/7B-combined 1
+
 ./repos/llama.cpp/quantize ./repos/7B-combined/ggml-model-f16.bin ./models/llama.cpp/ggml-model-q4_0.bin 2

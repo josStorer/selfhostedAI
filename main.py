@@ -215,7 +215,7 @@ AI: 好的, 如果有什么需要, 随时告诉我"""
     async def eval_llama_instruct():
         eval_data["conversation"] = bytearray()
 
-        model["model"].stdin.write((user_question.replace("\n", "") + "\r\n").encode())
+        model["model"].stdin.write((user_question.replace("\n", "\\\n") + "\r\n").encode())
         model["model"].stdin.flush()
         print("> " + user_question)
 
