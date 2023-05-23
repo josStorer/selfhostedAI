@@ -20,7 +20,11 @@ Go to https://github.com/josStorer/chatGPTBox, and switch to the following API m
 
 ## Chat
 
-1. [ChatGLM 6B Int4](https://github.com/THUDM/ChatGLM-6B)
+1. [RWKV](https://github.com/BlinkDL/RWKV-LM)
+    - [6MB Online Installation Program](https://github.com/josStorer/RWKV-Runner/releases)
+    - See more in [RWKV-Runner](https://github.com/josStorer/RWKV-Runner)
+
+2. [ChatGLM 6B Int4](https://github.com/THUDM/ChatGLM-6B)
     - [Offline](https://github.com/josStorer/selfhostedAI/releases)
         - This package is based on ChatGLM, open-sourced under the Apache-2.0 license. The built-in model is a trimmed
           version of https://huggingface.co/silver/chatglm-6b-int4-slim.
@@ -33,7 +37,7 @@ Go to https://github.com/josStorer/chatGPTBox, and switch to the following API m
           be `https://josstorer-test.hf.space/chat/completions`
     - When used with ChatGPTBox, the model name needs to be set to `chatglm-6b-int4`
 
-2. [llama.cpp](https://github.com/ggerganov/llama.cpp)
+3. [llama.cpp](https://github.com/ggerganov/llama.cpp)
     - [Offline](https://github.com/josStorer/selfhostedAI/releases)
         - This package is based on llama.cpp. Built-in command line interactive program
           is [the version I modified](https://github.com/josStorer/llama.cpp-unicode-windows)

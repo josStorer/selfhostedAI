@@ -19,7 +19,12 @@
 
 ## 聊天
 
-1. [ChatGLM 6B Int4](https://github.com/THUDM/ChatGLM-6B)
+1. [RWKV](https://github.com/BlinkDL/RWKV-LM)
+    - [6MB在线安装程序](https://github.com/josStorer/RWKV-Runner/releases)
+    - [百度网盘](https://pan.baidu.com/s/1wchIUHgne3gncIiLIeKBEQ?pwd=1111)
+    - 前往[RWKV-Runner](https://github.com/josStorer/RWKV-Runner)查看详情介绍
+
+2. [ChatGLM 6B Int4](https://github.com/THUDM/ChatGLM-6B)
     - [离线包](https://github.com/josStorer/selfhostedAI/releases),
       可选[百度网盘](https://pan.baidu.com/s/1wchIUHgne3gncIiLIeKBEQ?pwd=1111)
         - 该包基于ChatGLM, 遵循Apache-2.0协议开源, 内置模型为 https://huggingface.co/silver/chatglm-6b-int4-slim 的裁切版
@@ -30,7 +35,7 @@
           例如我复制后名字设为`test`, 那么我的url就是 `https://josstorer-test.hf.space/chat/completions`
     - 配合ChatGPTBox使用时, 需要将模型名设为`chatglm-6b-int4`
 
-2. [llama.cpp](https://github.com/ggerganov/llama.cpp)
+3. [llama.cpp](https://github.com/ggerganov/llama.cpp)
     - [离线包](https://github.com/josStorer/selfhostedAI/releases),
       可选[百度网盘](https://pan.baidu.com/s/1wchIUHgne3gncIiLIeKBEQ?pwd=1111)
         - 该包基于llama.cpp, 内置命令行交互示例为我[修改的版本](https://github.com/josStorer/llama.cpp-unicode-windows),
