@@ -21,7 +21,7 @@ Go to https://github.com/josStorer/chatGPTBox, and switch to the following API m
 ## Chat
 
 1. [RWKV](https://github.com/BlinkDL/RWKV-LM)
-    - [6MB Online Installation Program](https://github.com/josStorer/RWKV-Runner/releases)
+    - [8MB Online Installation Program](https://github.com/josStorer/RWKV-Runner/releases)
     - See more in [RWKV-Runner](https://github.com/josStorer/RWKV-Runner)
 
 2. [ChatGLM 6B Int4](https://github.com/THUDM/ChatGLM-6B)
@@ -48,3 +48,29 @@ Go to https://github.com/josStorer/chatGPTBox, and switch to the following API m
         - After unzipping, double-click on the corresponding model file to run. For example, `llama.bat` to run
           the llama model, or `chatglm.bat` to run the chatglm model.
     - When used with ChatGPTBox, the model name needs to be set to `llama-7b-int4`
+
+## Painting
+
+1. [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
+    - This project comes with a one-click installer, download
+      link: https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/download/v1.0.0-pre/sd.webui.zip
+    - Installation steps for other
+      systems: https://github.com/AUTOMATIC1111/stable-diffusion-webui#installation-and-running
+    - For Windows, after downloading and unzipping the above installer, double-click `update.bat`, and then
+      run `run.bat`. Subsequently, you can directly run `run.bat` for future launches (at least one model needs to be
+      downloaded for normal startup).
+    - You can find the model you want to use at https://civitai.com/ and download it. Place the model in
+      the `webui\models\Stable-diffusion` directory and place the VAE model in the `webui\models\VAE` directory.
+    - Next, open your browser and visit `http://127.0.0.1:7860/`.
+    - You may need to set the VAE you downloaded in `Settings -> Stable Diffusion -> SD VAE`.
+
+## Integrated Applications
+
+1. [text-generation-webui](https://github.com/oobabooga/text-generation-webui)
+    - This project comes with some one-click installers, download
+      link: https://github.com/oobabooga/text-generation-webui#one-click-installers. Simply choose the zip file
+      corresponding to your system and download it.
+
+2. [Wenda](https://github.com/wenda-LLM/wenda)
+    - This project provides a packaged program, download link: https://pan.baidu.com/s/1idvot-XhEvLLKCbjDQuhyg?pwd=wdai.
+    - Steps for use: https://github.com/wenda-LLM/wenda#%E6%87%92%E4%BA%BA%E5%8C%85
